@@ -30,7 +30,7 @@ Each item of the array contain the keys : `x`, `y`, `index`,`rot` & `flipX` as i
 ## Make those layers a tile array
 `var backgroundArray = pyxelMap.getLayerArray(background)` will return an map array of type `Array<Array<Int>>` allowing you to check the tile ID with `backgroundArray[x][y]`.
 
-You can also use it to get a collision map. If you name PyxelEdit layer "collision" and dedicate a red tile for collisions, you can then extract that layer and check if there is a collision with a simple `collisionArray[x][y]`.
+You can also use it to get a collision map. If, for example, you name a PyxelEdit layer "collision" and dedicate a red tile for collisions, you can then extract that layer and check if there is a collision with a simple `collisionArray[x][y]`.
 
 ## IDs assignation
 IDs are assigned in order of appearance in your Pyxel Edit tileset window :

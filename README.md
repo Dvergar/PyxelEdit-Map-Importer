@@ -1,14 +1,14 @@
 PyxelEdit-Map-Importer
 ======================
 
-Map importer for Pyxel Edit (free version 0.2.22c)
+Haxe map importer for **Pyxel Edit** (free version 0.2.22c)
 
 # Usage
 
 * Export your map *File > Export tilemap as XML...*
 * Export your tileset *File > Export tileset...*
 
-make use of the PyxelEdit-Map-Importer tools with `import pmi.PyxelMapImporter`
+Make use of the PyxelEdit-Map-Importer tools with `import pmi.PyxelMapImporter`
 
 ## Loading the map
 Assuming you're not necessarily using any graphical framework (server for example) :
@@ -16,6 +16,8 @@ Assuming you're not necessarily using any graphical framework (server for exampl
 `var pyxelMap = new PyxelMapImporter(sys.io.File.getContent("map.xml"));` will load the xml pyxel map. The argument is the xml content as `String`.
 
 ## Extracting layer datas
+![Pyxel Edit layer view](http://i.imgur.com/ZLklAAP.png)
+
 `var background = pyxelMap.getDatasFromLayer("background");`
 
 * `"background"` is the name of the layer in PyxelEdit.
@@ -35,4 +37,62 @@ IDs are assigned in order of appearance in your Pyxel Edit tileset window :
 
 So let's say your collision red tile is at the rank 5, to check a collision you'll have to check if `collisionArray[x][y] == 5`: This is not a 0/1 collision map.
 
-Unused tiles are defaulted to `-1`.
+No tiles is defaulted to `-1`.
+
+## Example
+```Haxe
+import pmi.PyxelMapImporter;
+import pmi.OpenflHelper;
+
+class Main extends Sprite
+{
+    public function new()
+    {
+        super();
+        var pyxelMap = new PyxelMapImporter(Assets.getText("assets/map.xml"));
+        var background = pyxelMap.getDatasFromLayer("background");
+        var backgroundArray = pyxelMap.getLayerArray(background);
+    }
+}
+```
+
+# OpenFL helper
+
+You can make use of `pmi.OpenflHelper` to get a tilesheet object and a tile array easily.
+
+* `var tilemapBackground = OpenflHelper.getTilesheetArray(background);` will return an `Array<Float>`.
+* `var tilesheet = OpenflHelper.getTilesheet("assets/map.png");` will return a tilesheet object.
+
+and that's all you need.
+
+## Example
+
+It will load three different layers and will draw them on screen.
+
+```Haxe
+import flash.display.Sprite;
+import openfl.Assets;
+
+import pmi.PyxelMapImporter;
+import pmi.OpenflHelper;
+
+class Main extends Sprite
+{
+    public function new()
+    {
+        super();
+        var pyxelMap = new PyxelMapImporter(Assets.getText("assets/map.xml"));
+        var background = pyxelMap.getDatasFromLayer("background");
+        var walls = pyxelMap.getDatasFromLayer("walls");
+        var objects = pyxelMap.getDatasFromLayer("objects");
+        var tilemapBackground = OpenflHelper.getTilesheetArray(background);
+        var tilemapWalls = OpenflHelper.getTilesheetArray(walls);
+        var tilemapObjects = OpenflHelper.getTilesheetArray(objects);
+        var tilesheet = OpenflHelper.getTilesheet("assets/map.png");
+
+        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapBackground);
+        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapWalls);
+        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapObjects);
+    }
+}
+```

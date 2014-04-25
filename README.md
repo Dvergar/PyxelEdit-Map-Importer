@@ -67,6 +67,8 @@ You can make use of `pmi.OpenflHelper` to get a tilesheet object and a tile arra
 
 and that's all you need.
 
+_**Note** that to load an openFL asset (the pyxel xml map) you would need `new PyxelMapImporter(Assets.getText("assets/map.xml"));` here._
+
 ## Example
 
 It will load three different layers and will draw them on screen.

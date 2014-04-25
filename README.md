@@ -44,7 +44,6 @@ No tiles is defaulted to `-1`.
 ## Example
 ```Haxe
 import pmi.PyxelMapImporter;
-import pmi.OpenflHelper;
 
 class Main extends Sprite
 {

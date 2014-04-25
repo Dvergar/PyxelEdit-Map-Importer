@@ -51,7 +51,7 @@ class Main extends Sprite
     public function new()
     {
         super();
-        var pyxelMap = new PyxelMapImporter(Assets.getText("assets/map.xml"));
+        var pyxelMap = new PyxelMapImporter(sys.io.File.getContent("map.xml"));
         var background = pyxelMap.getDatasFromLayer("background");
         var backgroundArray = pyxelMap.getLayerArray(background);
     }

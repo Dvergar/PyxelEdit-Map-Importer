@@ -3,6 +3,8 @@ PyxelEdit-Map-Importer
 
 Haxe map importer for **Pyxel Edit** (free version 0.2.22c)
 
+![Pyxel Edit + flash version](http://i.imgur.com/SSux3u6.png)
+
 # Usage
 
 * Export your map *File > Export tilemap as XML...*

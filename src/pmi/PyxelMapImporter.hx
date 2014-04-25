@@ -45,7 +45,7 @@ class PyxelMapImporter
         return layerDatas;
     }
 
-    public function getMapArray(mapDatas:Array<Map<String, String>>)
+    public function getLayerArray(layerDatas:Array<Map<String, String>>)
                                                   :Array<Array<Int>>
     {
         var newMap:Array<Array<Int>> = new Array();
@@ -60,7 +60,7 @@ class PyxelMapImporter
             newMap.push(row);
         }
 
-        for(tile in mapDatas)
+        for(tile in layerDatas)
         {
             var index = Std.parseInt(tile.get("index"));
 

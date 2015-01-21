@@ -30,7 +30,7 @@ Each item of the array contain the keys : `x`, `y`, `index`,`rot` & `flipX` as i
 ## Make those layers a tile array
 `var backgroundArray = pyxelMap.getLayerArray(background)` will return an map array of type `Array<Array<Int>>` allowing you to check the tile ID with `backgroundArray[x][y]`.
 
-You can also use it to get a collision map. If you name PyxelEdit layer "collision" and dedicate a red tile for collisions, you can then extract that layer and check if there is a collision with a simple `collisionArray[x][y]`.
+You can also use it to get a collision map. If, for example, you name a PyxelEdit layer "collision" and dedicate a red tile for collisions, you can then extract that layer and check if there is a collision with a simple `collisionArray[x][y]`.
 
 ## IDs assignation
 IDs are assigned in order of appearance in your Pyxel Edit tileset window :
@@ -44,14 +44,13 @@ No tiles is defaulted to `-1`.
 ## Example
 ```Haxe
 import pmi.PyxelMapImporter;
-import pmi.OpenflHelper;
 
 class Main extends Sprite
 {
     public function new()
     {
         super();
-        var pyxelMap = new PyxelMapImporter(Assets.getText("assets/map.xml"));
+        var pyxelMap = new PyxelMapImporter(sys.io.File.getContent("map.xml"));
         var background = pyxelMap.getDatasFromLayer("background");
         var backgroundArray = pyxelMap.getLayerArray(background);
     }
@@ -66,6 +65,8 @@ You can make use of `pmi.OpenflHelper` to get a tilesheet object and a tile arra
 * `var tilesheet = OpenflHelper.getTilesheet("assets/map.png");` will return a tilesheet object.
 
 and that's all you need.
+
+_**Note** that to load an openFL asset (the pyxel xml map) you would need `new PyxelMapImporter(Assets.getText("assets/map.xml"));` here._
 
 ## Example
 

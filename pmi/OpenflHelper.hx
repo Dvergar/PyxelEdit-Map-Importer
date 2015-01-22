@@ -32,20 +32,31 @@ class OpenflHelper
                                                             				 :Array<Float>
     {
         var tileArray:Array<Float> = new Array();
-        for(tile in layerDatas) {
+        for(tile in layerDatas)
+        {
             var index = Std.parseInt(tile.get("index"));
-            if(index != -1) {
+            if(index != -1)
+            {
                 tileArray.push(Std.parseInt(
                                 tile.get("x")) * PyxelMapImporter.TILE_WIDTH);
                 tileArray.push(Std.parseInt(
                                 tile.get("y")) * PyxelMapImporter.TILE_HEIGHT);
                 tileArray.push(Std.parseInt(tile.get("index")));
 
-                // TILE_TRANS_2x2
-                // tileArray.push(1);
-                // tileArray.push(0);
-                // tileArray.push(0);
-                // tileArray.push(1);
+                // ROTATION
+                // Note : Needs to add x & y offset + flipX since this formula
+                // doesn't take the center as the anchor.
+                // Other issue is alignment/bleeding "issue" !? when using
+                // the TILE_TRANS_2x2 flag.
+
+                // var rot = Std.parseInt(tile.get("rot"));
+                // var rotation = rot * 90 * (Math.PI/180);
+                // var cos = Math.cos(-rotation);
+                // var sin = Math.sin(-rotation);
+                // tileArray.push(cos);
+                // tileArray.push(sin);
+                // tileArray.push(-1 * sin);
+                // tileArray.push(cos);
             }
         }
         return tileArray;

@@ -23,12 +23,14 @@ class PyxelMapImporter
     public function getDatasFromLayer(layerName:String)
                             :Array<Map<String, String>>
     {
+        var foundLayer = false;
         var layers = pyxelMap.nodes.layer;
         var layerDatas = new Array();
         for(layer in layers)
         {
             if(layer.att.name == layerName)
             {
+                foundLayer = true;
                 for(tile in layer.nodes.tile)
                 {
                     var t:Map<String, String> = new Map();
@@ -41,6 +43,8 @@ class PyxelMapImporter
                 }
             }
         }
+
+        if(!foundLayer) throw 'Layer $layerName not found!';
 
         return layerDatas;
     }

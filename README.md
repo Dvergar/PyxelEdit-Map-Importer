@@ -1,7 +1,7 @@
 PyxelEdit-Map-Importer
 ======================
 
-Haxe map importer for **Pyxel Edit** for the free & paid version.
+Haxe map importer for **Pyxel Edit** for the free & paid version. With OpenFL and Luxe helpers.
 
 ![Pyxel Edit + flash version](http://i.imgur.com/SSux3u6.png)
 
@@ -23,9 +23,9 @@ Assuming you're not necessarily using any graphical framework (server for exampl
 `var background = pyxelMap.getDatasFromLayer("background");`
 
 * `"background"` is the name of the layer in PyxelEdit.
-* `background` (the variable) is an array of `Map<String, String>`.
+* `background` (the variable) is an object of type `Layer`.
 
-Each item of the array contain the keys : `x`, `y`, `index`,`rot` & `flipX` as it is in the XML, those datas are exposed in an cleaner way than the XML file and let you use some of the parameters i'm not using in the other methods.
+`Layer.tiles` is an `Array<Tile>` where you can access fields : `x`, `y`, `index`,`rot` & `flipX` as it is in the XML, those datas are exposed in an cleaner way than the XML file and let you use some of the parameters i'm not using in the other methods.
 
 ## Make those layers a tile array
 `var backgroundArray = pyxelMap.getLayerArray(background)` will return an map array of type `Array<Array<Int>>` allowing you to check the tile ID with `backgroundArray[x][y]`.
@@ -62,7 +62,7 @@ class Main extends Sprite
 You can make use of `pmi.OpenflHelper` to get a tilesheet object and a tile array easily.
 
 * `var tilemapBackground = OpenflHelper.getTilesheetArray(background);` will return an `Array<Float>`.
-* `var tilesheet = OpenflHelper.getTilesheet("assets/map.png");` will return a tilesheet object.
+* `var tilesheet = OpenflHelper.getTilesheet("assets/tileset.png");` will return a tilesheet object.
 
 and that's all you need.
 
@@ -78,6 +78,7 @@ import openfl.Assets;
 
 import pmi.PyxelMapImporter;
 import pmi.OpenflHelper;
+
 
 class Main extends Sprite
 {
@@ -96,6 +97,45 @@ class Main extends Sprite
         tilesheet.drawTiles(flash.Lib.current.graphics, tilemapBackground);
         tilesheet.drawTiles(flash.Lib.current.graphics, tilemapWalls);
         tilesheet.drawTiles(flash.Lib.current.graphics, tilemapObjects);
+    }
+}
+```
+
+# Luxe helper
+
+You can make use of `pmi.LuxeHelper` to get a tilemap object and and fill the tilelayers easily.
+
+* `var tilemap = LuxeHelper.getTilemap('assets/tileset.png');` will return a `Tilemap` object.
+* `LuxeHelper.fillLayer(tilemap, background, 0);` will add the appropriate tilelayer to the tilemap.
+
+and that's all you need.
+
+_**Note** that to load an luxe asset (the pyxel xml map) you would need `new PyxelMapImporter(Assets.getText("assets/map.xml"))PyxelMapImporter(Luxe.loadText("assets/map.xml", null, false).text);` here._
+
+## Example
+
+It will load three different layers and will draw them on screen.
+
+```Haxe
+import pmi.PyxelMapImporter;
+import pmi.LuxeHelper;
+
+
+class Main extends luxe.Game
+{
+    override function ready()
+    {
+        var pyxelMap = new PyxelMapImporter(Luxe.loadText("assets/map.xml", null, false).text);
+        var tilemap = LuxeHelper.getTilemap('assets/tileset.png');
+        var background = pyxelMap.getDatasFromLayer("background");
+        var walls = pyxelMap.getDatasFromLayer("walls");
+        var objects = pyxelMap.getDatasFromLayer("objects");
+
+        LuxeHelper.fillLayer(tilemap, background, 0);
+        LuxeHelper.fillLayer(tilemap, walls, 1);
+        LuxeHelper.fillLayer(tilemap, objects, 2);
+
+        tilemap.display({});
     }
 }
 ```

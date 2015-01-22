@@ -91,7 +91,7 @@ class Main extends Sprite
         var tilemapBackground = OpenflHelper.getTilesheetArray(background);
         var tilemapWalls = OpenflHelper.getTilesheetArray(walls);
         var tilemapObjects = OpenflHelper.getTilesheetArray(objects);
-        var tilesheet = OpenflHelper.getTilesheet("assets/map.png");
+        var tilesheet = OpenflHelper.getTilesheet("assets/tileset.png");
 
         tilesheet.drawTiles(flash.Lib.current.graphics, tilemapBackground);
         tilesheet.drawTiles(flash.Lib.current.graphics, tilemapWalls);

@@ -28,20 +28,16 @@ class OpenflHelper
         return tilesheet;
     }
 
-    static inline public function getTilesheetArray(layerDatas:Array<Map<String, String>>)
-                                                            				 :Array<Float>
+    static inline public function getTilesheetArray(layer:pmi.PyxelMapImporter.Layer):Array<Float>
     {
         var tileArray:Array<Float> = new Array();
-        for(tile in layerDatas)
+        for(tile in layer.tiles)
         {
-            var index = Std.parseInt(tile.get("index"));
-            if(index != -1)
+            if(tile.index != -1)
             {
-                tileArray.push(Std.parseInt(
-                                tile.get("x")) * PyxelMapImporter.TILE_WIDTH);
-                tileArray.push(Std.parseInt(
-                                tile.get("y")) * PyxelMapImporter.TILE_HEIGHT);
-                tileArray.push(Std.parseInt(tile.get("index")));
+                tileArray.push(tile.x * PyxelMapImporter.TILE_WIDTH);
+                tileArray.push(tile.y * PyxelMapImporter.TILE_HEIGHT);
+                tileArray.push(tile.index);
 
                 // ROTATION
                 // Note : Needs to add x & y offset + flipX since this formula

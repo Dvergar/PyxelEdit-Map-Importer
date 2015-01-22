@@ -1,6 +1,30 @@
 package pmi;
 
 
+class Layer
+{
+    public var name:String;
+    public var tiles:Array<Tile> = new Array();
+
+    public function new(name:String)
+    {
+        this.name = name;
+    }
+}
+
+
+class Tile
+{
+    public var index:Int;
+    public var x:Int;
+    public var y:Int;
+    public var rot:Int;
+    public var flipX:Bool;
+
+    public function new() {}
+}
+
+
 class PyxelMapImporter
 {
     public static var TILE_WIDTH:Int;
@@ -20,42 +44,41 @@ class PyxelMapImporter
         TILES_HIGH = Std.parseInt(pyxelMap.att.tileshigh);
     }
 
-    public function getDatasFromLayer(layerName:String)
-                            :Array<Map<String, String>>
+    public function getDatasFromLayer(layerName:String):Layer
     {
+        var layer = new Layer(layerName);
+
         var foundLayer = false;
         var layers = pyxelMap.nodes.layer;
-        var layerDatas = new Array();
-        for(layer in layers)
+        for(xmlLayer in layers)
         {
-            if(layer.att.name == layerName)
+            if(xmlLayer.att.name == layerName)
             {
                 foundLayer = true;
-                for(tile in layer.nodes.tile)
+                for(xmlTile in xmlLayer.nodes.tile)
                 {
-                    var t:Map<String, String> = new Map();
-                    t.set("x", tile.att.x);
-                    t.set("y", tile.att.y);
-                    
-                    if(tile.has.index)  // FREE VERSION
-                        t.set("index", tile.att.index);
-                    else  // PAID VERSION
-                        t.set("index", tile.att.tile);
+                    var tile = new Tile();
+                    tile.x = Std.parseInt(xmlTile.att.x);
+                    tile.y = Std.parseInt(xmlTile.att.y);
+                    tile.rot = Std.parseInt(xmlTile.att.rot);
+                    tile.flipX = if(xmlTile.att.flipX == "true") true else false;
 
-                    t.set("rot", tile.att.rot);
-                    t.set("flipX", tile.att.flipX);
-                    layerDatas.push(t);
+                    if(xmlTile.has.index)  // FREE VERSION
+                        tile.index = Std.parseInt(xmlTile.att.index);
+                    else  // PAID VERSION
+                        tile.index = Std.parseInt(xmlTile.att.tile);
+
+                    layer.tiles.push(tile);
                 }
             }
         }
 
         if(!foundLayer) throw 'Layer $layerName not found!';
 
-        return layerDatas;
+        return layer;
     }
 
-    public function getLayerArray(layerDatas:Array<Map<String, String>>)
-                                                  :Array<Array<Int>>
+    public function getLayerArray(layer:Layer):Array<Array<Int>>
     {
         var newMap:Array<Array<Int>> = new Array();
 
@@ -69,17 +92,10 @@ class PyxelMapImporter
             newMap.push(row);
         }
 
-        for(tile in layerDatas)
+        for(tile in layer.tiles)
         {
-            var index = Std.parseInt(tile.get("index"));
-
-            if(index != -1)
-            {
-                var posx = Std.parseInt(tile.get("x"));
-                var posy = Std.parseInt(tile.get("y"));
-                var id = Std.parseInt(tile.get("index"));
-                newMap[posx][posy] = id;
-            }
+            if(tile.index != -1)
+                newMap[tile.x][tile.y] = tile.index;
         }
 
         return newMap;

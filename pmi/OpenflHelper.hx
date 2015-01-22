@@ -3,6 +3,7 @@ package pmi;
 import openfl.display.Tilesheet;
 import flash.geom.Rectangle;
 
+
 class OpenflHelper
 {
 	static inline public function getTilesheet(imgPath:String):Tilesheet
@@ -42,16 +43,15 @@ class OpenflHelper
                 // ROTATION
                 // Note : Needs to add x & y offset + flipX since this formula
                 // doesn't take the center as the anchor.
-                // Other issue is alignment/bleeding "issue" !? when using
+                // Other issue is alignment/bleeding!? when using
                 // the TILE_TRANS_2x2 flag.
 
-                // var rot = Std.parseInt(tile.get("rot"));
-                // var rotation = rot * 90 * (Math.PI/180);
+                // var rotation = tile.rot * 90 * (Math.PI/180);
                 // var cos = Math.cos(-rotation);
                 // var sin = Math.sin(-rotation);
                 // tileArray.push(cos);
                 // tileArray.push(sin);
-                // tileArray.push(-1 * sin);
+                // tileArray.push(-sin);
                 // tileArray.push(cos);
             }
         }

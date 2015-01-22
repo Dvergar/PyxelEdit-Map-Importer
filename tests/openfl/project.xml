@@ -5,8 +5,8 @@
 	<app main="Main" path="Export" file="MyProject" />
 	
 	<source path="Source" />
-    <source path="./../../src" />
 	<haxelib name="openfl" />
+	<haxelib name="pmi" />
 	
 	<assets path="Assets" rename="assets" exclude="openfl.svg" />
 	<icon path="Assets/openfl.svg" />

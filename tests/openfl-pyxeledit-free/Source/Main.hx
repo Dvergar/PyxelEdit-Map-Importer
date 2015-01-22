@@ -10,8 +10,14 @@ class Main extends Sprite
 {
     public function new ()
     {
-        super ();
-        var pyxelMap = new PyxelMapImporter(Assets.getText("assets/map.xml"));
+        super();
+        #if paid
+            trace("TESTING PAID VERSION");
+            var pyxelMap = new PyxelMapImporter(Assets.getText("assets/map-paid.xml"));
+        #else
+            trace("TESTING FREE VERSION");
+            var pyxelMap = new PyxelMapImporter(Assets.getText("assets/map-free.xml"));
+        #end
         var background = pyxelMap.getDatasFromLayer("background");
         var walls = pyxelMap.getDatasFromLayer("walls");
         var objects = pyxelMap.getDatasFromLayer("objects");

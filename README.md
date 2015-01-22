@@ -1,7 +1,7 @@
 PyxelEdit-Map-Importer
 ======================
 
-Haxe map importer for **Pyxel Edit** (free version 0.2.22c | * Soon: Paid version support*)
+Haxe map importer for **Pyxel Edit** for the free & paid version.
 
 ![Pyxel Edit + flash version](http://i.imgur.com/SSux3u6.png)
 

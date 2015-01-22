@@ -36,7 +36,12 @@ class PyxelMapImporter
                     var t:Map<String, String> = new Map();
                     t.set("x", tile.att.x);
                     t.set("y", tile.att.y);
-                    t.set("index", tile.att.index);
+                    
+                    if(tile.has.index)  // FREE VERSION
+                        t.set("index", tile.att.index);
+                    else  // PAID VERSION
+                        t.set("index", tile.att.tile);
+
                     t.set("rot", tile.att.rot);
                     t.set("flipX", tile.att.flipX);
                     layerDatas.push(t);

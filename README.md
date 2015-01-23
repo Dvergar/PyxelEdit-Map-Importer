@@ -39,7 +39,7 @@ IDs are assigned in order of appearance in your Pyxel Edit tileset window :
 
 So let's say your collision red tile is at the rank 5, to check a collision you'll have to check if `collisionArray[x][y] == 5`: This is not a 0/1 collision map.
 
-No tiles is defaulted to `-1`.
+`-1` refers to "no tile".
 
 ## Example
 ```Haxe

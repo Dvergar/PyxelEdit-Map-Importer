@@ -28,9 +28,9 @@ class LuxeHelper
         return tilemap;
     }
 
-    static inline public function fillLayer(tilemap:Tilemap, layer:Layer, ?depth:Int)
+    static inline public function fillLayer(tilemap:Tilemap, layer:Layer)
     {
-    	tilemap.add_layer({name: layer.name, layer: depth});
+    	tilemap.add_layer({name: layer.name, layer: layer.number});
     	tilemap.add_tiles_fill_by_id(layer.name, 0);
         for(tile in layer.tiles)
         {

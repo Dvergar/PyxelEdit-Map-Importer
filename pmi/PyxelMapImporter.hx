@@ -4,6 +4,7 @@ package pmi;
 class Layer
 {
     public var name:String;
+    public var number:Int;
     public var tiles:Array<Tile> = new Array();
 
     public function new(name:String)
@@ -54,6 +55,7 @@ class PyxelMapImporter
         {
             if(xmlLayer.att.name == layerName)
             {
+                layer.number = Std.parseInt(xmlLayer.att.number);
                 foundLayer = true;
                 for(xmlTile in xmlLayer.nodes.tile)
                 {

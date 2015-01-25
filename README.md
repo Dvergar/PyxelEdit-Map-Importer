@@ -131,9 +131,9 @@ class Main extends luxe.Game
         var walls = pyxelMap.getDatasFromLayer("walls");
         var objects = pyxelMap.getDatasFromLayer("objects");
 
-        LuxeHelper.fillLayer(tilemap, background, 0);
-        LuxeHelper.fillLayer(tilemap, walls, 1);
-        LuxeHelper.fillLayer(tilemap, objects, 2);
+        LuxeHelper.fillLayer(tilemap, background);
+        LuxeHelper.fillLayer(tilemap, walls);
+        LuxeHelper.fillLayer(tilemap, objects);
 
         tilemap.display({});
     }

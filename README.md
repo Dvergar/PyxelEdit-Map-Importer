@@ -110,7 +110,7 @@ You can make use of `pmi.LuxeHelper` to get a tilemap object and and fill the ti
 
 and that's all you need.
 
-_**Note** that to load an luxe asset (the pyxel xml map) you would need `new PyxelMapImporter(Assets.getText("assets/map.xml"))PyxelMapImporter(Luxe.loadText("assets/map.xml", null, false).text);` here._
+_**Note** that to load an luxe asset (the pyxel xml map) you would need `new PyxelMapImporter(Luxe.loadText("assets/map.xml", null, false).text);` here._
 
 ## Example
 

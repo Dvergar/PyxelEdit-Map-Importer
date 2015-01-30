@@ -106,7 +106,7 @@ class Main extends Sprite
 You can make use of `pmi.LuxeHelper` to get a tilemap object and and fill the tilelayers easily.
 
 * `var tilemap = LuxeHelper.getTilemap('assets/tileset.png');` will return a `Tilemap` object.
-* `LuxeHelper.fillLayer(tilemap, background, 0);` will add the appropriate tilelayer to the tilemap.
+* `LuxeHelper.fillLayer(tilemap, background);` will add the appropriate tilelayer to the tilemap.
 
 and that's all you need.
 

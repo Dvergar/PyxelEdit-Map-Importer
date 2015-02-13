@@ -114,7 +114,7 @@ _**Note** that to load a luxe asset (the pyxel xml map) you would need `new Pyxe
 
 ## Example
 
-It will load three different layers and will draw them on screen.
+It will load three different layers and draw them on screen.
 
 ```Haxe
 import pmi.PyxelMapImporter;

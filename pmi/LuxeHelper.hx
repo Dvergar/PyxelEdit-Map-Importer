@@ -7,7 +7,7 @@ class LuxeHelper
 {
     static inline public function getTilemap(imgPath:String):Tilemap
     {
-		var tilesetTexture = Luxe.loadTexture(imgPath, null, false);
+		var tilesetTexture = Luxe.resources.texture(imgPath);
         var tilemap = new Tilemap({
             x           : 0,
             y           : 0,

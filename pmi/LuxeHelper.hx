@@ -36,7 +36,9 @@ class LuxeHelper
         {
             if(tile.index != -1)
             {
-            	tilemap.tile_at(layer.name, tile.x, tile.y).id = tile.index + 1;
+                var luxeTile = tilemap.tile_at(layer.name, tile.x, tile.y);
+                luxeTile.id = tile.index + 1;
+                luxeTile.flipx = tile.flipX;
             }
         }
     }

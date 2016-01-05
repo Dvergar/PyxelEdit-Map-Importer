@@ -16,6 +16,7 @@ class Main extends luxe.Game {
 
     override function ready()
     {
+        // Use --d paid to switch tests
         #if paid
             trace("TESTING PAID VERSION");
             var pyxelMap = new PyxelMapImporter(Luxe.resources.text('assets/map-paid.xml').asset.text);

@@ -11,7 +11,6 @@
     },
 
     build : {
-      defines : ['paid'],
       dependencies : {
         luxe : '*',
         pmi : '*',

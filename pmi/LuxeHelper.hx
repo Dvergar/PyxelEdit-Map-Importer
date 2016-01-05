@@ -39,6 +39,7 @@ class LuxeHelper
                 var luxeTile = tilemap.tile_at(layer.name, tile.x, tile.y);
                 luxeTile.id = tile.index + 1;
                 luxeTile.flipx = tile.flipX;
+                luxeTile.angle = tile.rot * 90 * (if(luxeTile.flipx) -1 else 1);
             }
         }
     }

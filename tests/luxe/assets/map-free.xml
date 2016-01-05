@@ -417,8 +417,8 @@
     <tile x="10" y="1" index="-1" rot="0" flipX="false"/>
     <tile x="11" y="1" index="-1" rot="0" flipX="false"/>
     <tile x="12" y="1" index="-1" rot="0" flipX="false"/>
-    <tile x="13" y="1" index="6" rot="0" flipX="false"/>
-    <tile x="14" y="1" index="6" rot="0" flipX="true"/>
+    <tile x="13" y="1" index="-1" rot="0" flipX="false"/>
+    <tile x="14" y="1" index="-1" rot="0" flipX="false"/>
     <tile x="15" y="1" index="-1" rot="0" flipX="false"/>
     <tile x="0" y="2" index="-1" rot="0" flipX="false"/>
     <tile x="1" y="2" index="-1" rot="0" flipX="false"/>
@@ -433,8 +433,8 @@
     <tile x="10" y="2" index="-1" rot="0" flipX="false"/>
     <tile x="11" y="2" index="-1" rot="0" flipX="false"/>
     <tile x="12" y="2" index="-1" rot="0" flipX="false"/>
-    <tile x="13" y="2" index="6" rot="3" flipX="false"/>
-    <tile x="14" y="2" index="6" rot="1" flipX="true"/>
+    <tile x="13" y="2" index="-1" rot="0" flipX="false"/>
+    <tile x="14" y="2" index="-1" rot="0" flipX="false"/>
     <tile x="15" y="2" index="-1" rot="0" flipX="false"/>
     <tile x="0" y="3" index="-1" rot="0" flipX="false"/>
     <tile x="1" y="3" index="-1" rot="0" flipX="false"/>
@@ -466,8 +466,8 @@
     <tile x="11" y="4" index="-1" rot="0" flipX="false"/>
     <tile x="12" y="4" index="-1" rot="0" flipX="false"/>
     <tile x="13" y="4" index="-1" rot="0" flipX="false"/>
-    <tile x="14" y="4" index="-1" rot="0" flipX="false"/>
-    <tile x="15" y="4" index="-1" rot="0" flipX="false"/>
+    <tile x="14" y="4" index="6" rot="0" flipX="false"/>
+    <tile x="15" y="4" index="6" rot="1" flipX="false"/>
     <tile x="0" y="5" index="-1" rot="0" flipX="false"/>
     <tile x="1" y="5" index="-1" rot="0" flipX="false"/>
     <tile x="2" y="5" index="-1" rot="0" flipX="false"/>
@@ -482,8 +482,8 @@
     <tile x="11" y="5" index="-1" rot="0" flipX="false"/>
     <tile x="12" y="5" index="-1" rot="0" flipX="false"/>
     <tile x="13" y="5" index="-1" rot="0" flipX="false"/>
-    <tile x="14" y="5" index="-1" rot="0" flipX="false"/>
-    <tile x="15" y="5" index="-1" rot="0" flipX="false"/>
+    <tile x="14" y="5" index="6" rot="3" flipX="false"/>
+    <tile x="15" y="5" index="6" rot="2" flipX="false"/>
     <tile x="0" y="6" index="-1" rot="0" flipX="false"/>
     <tile x="1" y="6" index="-1" rot="0" flipX="false"/>
     <tile x="2" y="6" index="-1" rot="0" flipX="false"/>
@@ -514,8 +514,8 @@
     <tile x="11" y="7" index="-1" rot="0" flipX="false"/>
     <tile x="12" y="7" index="-1" rot="0" flipX="false"/>
     <tile x="13" y="7" index="-1" rot="0" flipX="false"/>
-    <tile x="14" y="7" index="-1" rot="0" flipX="false"/>
-    <tile x="15" y="7" index="-1" rot="0" flipX="false"/>
+    <tile x="14" y="7" index="6" rot="3" flipX="true"/>
+    <tile x="15" y="7" index="6" rot="0" flipX="true"/>
     <tile x="0" y="8" index="-1" rot="0" flipX="false"/>
     <tile x="1" y="8" index="-1" rot="0" flipX="false"/>
     <tile x="2" y="8" index="-1" rot="0" flipX="false"/>
@@ -530,8 +530,8 @@
     <tile x="11" y="8" index="-1" rot="0" flipX="false"/>
     <tile x="12" y="8" index="-1" rot="0" flipX="false"/>
     <tile x="13" y="8" index="-1" rot="0" flipX="false"/>
-    <tile x="14" y="8" index="-1" rot="0" flipX="false"/>
-    <tile x="15" y="8" index="-1" rot="0" flipX="false"/>
+    <tile x="14" y="8" index="6" rot="2" flipX="true"/>
+    <tile x="15" y="8" index="6" rot="1" flipX="true"/>
     <tile x="0" y="9" index="-1" rot="0" flipX="false"/>
     <tile x="1" y="9" index="-1" rot="0" flipX="false"/>
     <tile x="2" y="9" index="-1" rot="0" flipX="false"/>

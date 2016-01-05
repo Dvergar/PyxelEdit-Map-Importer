@@ -2,6 +2,8 @@ package pmi;
 
 import openfl.display.Tilesheet;
 import flash.geom.Rectangle;
+import flash.geom.Matrix;
+import flash.geom.Point;
 
 
 class OpenflHelper
@@ -23,6 +25,7 @@ class OpenflHelper
                                          PyxelMapImporter.TILE_WIDTH,
                                          PyxelMapImporter.TILE_HEIGHT);
                 tilesheet.addTileRect(rect);
+                // tilesheet.addTileRect(rect, new Point(PyxelMapImporter.TILE_WIDTH / 2 , PyxelMapImporter.TILE_HEIGHT));
             }
         }
 
@@ -46,14 +49,16 @@ class OpenflHelper
                 // Other issue is alignment/bleeding!? when using
                 // the TILE_TRANS_2x2 flag.
 
-                // var rotation = tile.rot * 90 * (Math.PI/180);
-                // var cos = Math.cos(-rotation);
-                // var sin = Math.sin(-rotation);
-                // tileArray.push(cos);
-                // tileArray.push(sin);
-                // tileArray.push(-sin);
-                // tileArray.push(cos);
+                // var matrix = new Matrix();
+                // matrix.rotate(tile.rot * 90 * (Math.PI/180));
+
+                // tileArray.push(matrix.a);
+                // tileArray.push(matrix.b);
+                // tileArray.push(matrix.c);
+                // tileArray.push(matrix.d);
             }
+
+
         }
         return tileArray;
     }

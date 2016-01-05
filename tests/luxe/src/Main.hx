@@ -21,7 +21,7 @@ class Main extends luxe.Game {
             var pyxelMap = new PyxelMapImporter(Luxe.resources.text('assets/map-paid.xml').asset.text);
         #else
             trace("TESTING FREE VERSION");
-            var pyxelMap = new PyxelMapImporter(Luxe.resources.text('assets/map-free.xml')asset.text);
+            var pyxelMap = new PyxelMapImporter(Luxe.resources.text('assets/map-free.xml').asset.text);
         #end
 
     	var tilemap = LuxeHelper.getTilemap('assets/tileset.png');

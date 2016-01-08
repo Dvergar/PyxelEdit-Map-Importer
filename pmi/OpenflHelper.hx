@@ -24,8 +24,8 @@ class OpenflHelper
                                          posy * PyxelMapImporter.TILE_HEIGHT,
                                          PyxelMapImporter.TILE_WIDTH,
                                          PyxelMapImporter.TILE_HEIGHT);
-                tilesheet.addTileRect(rect);
-                // tilesheet.addTileRect(rect, new Point(PyxelMapImporter.TILE_WIDTH / 2 , PyxelMapImporter.TILE_HEIGHT));
+
+                tilesheet.addTileRect(rect, new Point(PyxelMapImporter.TILE_WIDTH / 2 , PyxelMapImporter.TILE_HEIGHT / 2));
             }
         }
 
@@ -39,26 +39,18 @@ class OpenflHelper
         {
             if(tile.index != -1)
             {
-                tileArray.push(tile.x * PyxelMapImporter.TILE_WIDTH);
-                tileArray.push(tile.y * PyxelMapImporter.TILE_HEIGHT);
+                var matrix = new Matrix();
+                matrix.rotate( tile.rot * 90 * (Math.PI / 180) * (if(tile.flipX) -1 else 1) );
+                if(tile.flipX) matrix.scale(-1, 1);
+
+                tileArray.push(tile.x * PyxelMapImporter.TILE_WIDTH + matrix.tx);
+                tileArray.push(tile.y * PyxelMapImporter.TILE_HEIGHT + matrix.ty);
                 tileArray.push(tile.index);
-
-                // ROTATION
-                // Note : Needs to add x & y offset + flipX since this formula
-                // doesn't take the center as the anchor.
-                // Other issue is alignment/bleeding!? when using
-                // the TILE_TRANS_2x2 flag.
-
-                // var matrix = new Matrix();
-                // matrix.rotate(tile.rot * 90 * (Math.PI/180));
-
-                // tileArray.push(matrix.a);
-                // tileArray.push(matrix.b);
-                // tileArray.push(matrix.c);
-                // tileArray.push(matrix.d);
+                tileArray.push(matrix.a);
+                tileArray.push(matrix.b);
+                tileArray.push(matrix.c);
+                tileArray.push(matrix.d);
             }
-
-
         }
         return tileArray;
     }

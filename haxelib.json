@@ -1,0 +1,11 @@
+{
+	"name": "pmi",
+	"url": "https://github.com/Dvergar/PyxelEdit-Map-Importer",
+	"license": "BSD",
+	"tags": ["pyxeledit", "editor", "importer", "pyxel", "map", "game"],
+	"description": "Map importer for PyxelEdit editor",
+	"version": "0.3.0",
+	"releasenote": "rotation & flip support for openfl & luxe helpers",
+	"contributors": [ "caribou" ],
+	"dependencies": {}
+}

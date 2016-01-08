@@ -14,8 +14,7 @@ class Main extends luxe.Game {
         
     } //config
 
-    override function ready()
-    {
+    override function ready() {
         // Use --d paid to switch tests
         #if paid
             trace("TESTING PAID VERSION");
@@ -35,5 +34,5 @@ class Main extends luxe.Game {
         LuxeHelper.fillLayer(tilemap, objects);
 
         tilemap.display({});
-    }
+    } //ready
 }

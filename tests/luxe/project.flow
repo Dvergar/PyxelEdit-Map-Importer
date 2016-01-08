@@ -1,13 +1,13 @@
 {
 
   project : {
-    name : 'empty',
+    name : 'pmi test',
     version : '1.0.0',
-    author : 'luxeengine',
+    author : 'Dvergar / caribou',
 
     app : {
-      name : 'luxe_empty',
-      package : 'org.luxeengine.empty'
+      name : 'pmi_test',
+      package : ''
     },
 
     build : {

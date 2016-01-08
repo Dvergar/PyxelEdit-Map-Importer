@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<meta title="MyProject" package="com.example.myproject" version="1.0.0" company="Company Name" />
+	<meta title="pmi test" package="" version="1.0.0" company="Dvergar company" />
 	<app main="Main" path="Export" file="MyProject" />
 	
 	<source path="Source" />

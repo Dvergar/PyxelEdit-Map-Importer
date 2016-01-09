@@ -75,7 +75,7 @@ _**Note** that to load an openFL asset (the pyxel xml map) you would need `new P
 It will load three different layers and will draw them on screen.
 
 ```Haxe
-import flash.display.Sprite;
+import openfl.display.Sprite;
 import openfl.Assets;
 import openfl.display.Tilesheet;
 
@@ -97,9 +97,9 @@ class Main extends Sprite
         var tilemapObjects = OpenflHelper.getTilesheetArray(objects);
         var tilesheet = OpenflHelper.getTilesheet("assets/tileset.png");
 
-        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapBackground, false, Tilesheet.TILE_TRANS_2x2);
-        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapWalls, false, Tilesheet.TILE_TRANS_2x2);
-        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapObjects, false, Tilesheet.TILE_TRANS_2x2);
+        tilesheet.drawTiles(openfl.Lib.current.graphics, tilemapBackground, false, Tilesheet.TILE_TRANS_2x2);
+        tilesheet.drawTiles(openfl.Lib.current.graphics, tilemapWalls, false, Tilesheet.TILE_TRANS_2x2);
+        tilesheet.drawTiles(openfl.Lib.current.graphics, tilemapObjects, false, Tilesheet.TILE_TRANS_2x2);
     }
 }
 ```

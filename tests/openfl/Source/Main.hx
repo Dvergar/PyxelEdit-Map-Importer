@@ -1,5 +1,5 @@
-import flash.display.Sprite;
 import openfl.Assets;
+import openfl.display.Sprite;
 import openfl.display.Tilesheet;
 
 import pmi.PyxelMapImporter;
@@ -26,8 +26,8 @@ class Main extends Sprite
         var tilemapObjects = OpenflHelper.getTilesheetArray(objects);
         var tilesheet = OpenflHelper.getTilesheet("assets/tileset.png");
 
-        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapBackground, false, Tilesheet.TILE_TRANS_2x2);
-        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapWalls, false, Tilesheet.TILE_TRANS_2x2);
-        tilesheet.drawTiles(flash.Lib.current.graphics, tilemapObjects, false, Tilesheet.TILE_TRANS_2x2);
+        tilesheet.drawTiles(openfl.Lib.current.graphics, tilemapBackground, false, Tilesheet.TILE_TRANS_2x2);
+        tilesheet.drawTiles(openfl.Lib.current.graphics, tilemapWalls, false, Tilesheet.TILE_TRANS_2x2);
+        tilesheet.drawTiles(openfl.Lib.current.graphics, tilemapObjects, false, Tilesheet.TILE_TRANS_2x2);
     }
 }

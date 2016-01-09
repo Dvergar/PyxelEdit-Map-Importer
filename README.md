@@ -1,6 +1,8 @@
 PyxelEdit-Map-Importer
 ======================
 
+___Available via [haxelib](http://lib.haxe.org/p/pmi/)___
+
 Haxe map importer for **Pyxel Edit** for the free & paid version. With OpenFL and Luxe helpers.
 
 ![Pyxel Edit + flash version](http://i.imgur.com/SSux3u6.png)

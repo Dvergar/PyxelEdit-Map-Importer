@@ -47,7 +47,7 @@ So let's say your collision red tile is at the rank 5, to check a collision you'
 ```Haxe
 import pmi.PyxelMapImporter;
 
-class Main extends Sprite
+class Main
 {
     public function new()
     {

@@ -51,7 +51,6 @@ class Main
 {
     public function new()
     {
-        super();
         var pyxelMap = new PyxelMapImporter(sys.io.File.getContent("map.xml"));
         var background = pyxelMap.getDatasFromLayer("background");
         var backgroundArray = pyxelMap.getLayerArray(background);

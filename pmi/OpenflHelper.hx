@@ -1,18 +1,21 @@
 package pmi;
 
-import openfl.display.Tilesheet;
+import openfl.display.Tileset;
+import openfl.display.Tilemap;
+import openfl.display.Tile;
 import openfl.geom.Rectangle;
 import openfl.geom.Matrix;
 import openfl.geom.Point;
+import openfl.Lib;
 
 
 class OpenflHelper
 {
-	static inline public function getTilesheet(imgPath:String):Tilesheet
+	static inline public function getTileset(imgPath:String):Tileset
 	{
         var bd = openfl.Assets.getBitmapData(imgPath);
 
-        var tilesheet = new Tilesheet(bd);
+        var tileset = new Tileset(bd);
         var tilesWide = Std.int(bd.width / PyxelMapImporter.TILE_WIDTH);
         var tilesHigh = Std.int(bd.height / PyxelMapImporter.TILE_HEIGHT);
 
@@ -25,33 +28,34 @@ class OpenflHelper
                                          PyxelMapImporter.TILE_WIDTH,
                                          PyxelMapImporter.TILE_HEIGHT);
 
-                tilesheet.addTileRect(rect, new Point(PyxelMapImporter.TILE_WIDTH / 2 , PyxelMapImporter.TILE_HEIGHT / 2));
+                tileset.addRect(rect);
             }
         }
 
-        return tilesheet;
+        return tileset;
     }
 
-    static inline public function getTilesheetArray(layer:pmi.PyxelMapImporter.Layer):Array<Float>
+    static inline public function getTilemap(layer:pmi.PyxelMapImporter.Layer, tileset:Tileset):Tilemap
     {
-        var tileArray:Array<Float> = new Array();
+		var tilemap = new Tilemap(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight, tileset);
+		tilemap.smoothing = false;
+
         for(tile in layer.tiles)
         {
             if(tile.index != -1)
             {
-                var matrix = new Matrix();
-                matrix.rotate( tile.rot * 90 * (Math.PI / 180) * (if(tile.flipX) -1 else 1) );
-                if(tile.flipX) matrix.scale(-1, 1);
+                var openflTile = new Tile(tile.index);
+                openflTile.x = tile.x * PyxelMapImporter.TILE_WIDTH;
+                openflTile.y = tile.y * PyxelMapImporter.TILE_HEIGHT;
+                openflTile.originX = PyxelMapImporter.TILE_WIDTH / 2;
+                openflTile.originY = PyxelMapImporter.TILE_WIDTH / 2;
 
-                tileArray.push(tile.x * PyxelMapImporter.TILE_WIDTH + matrix.tx);
-                tileArray.push(tile.y * PyxelMapImporter.TILE_HEIGHT + matrix.ty);
-                tileArray.push(tile.index);
-                tileArray.push(matrix.a);
-                tileArray.push(matrix.b);
-                tileArray.push(matrix.c);
-                tileArray.push(matrix.d);
+                if(tile.flipX) openflTile.scaleX = -1;
+                openflTile.rotation = tile.rot * 90;
+
+                tilemap.addTile(openflTile);
             }
         }
-        return tileArray;
+        return tilemap;
     }
 }

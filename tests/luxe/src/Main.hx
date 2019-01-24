@@ -4,7 +4,7 @@ import pmi.LuxeHelper;
 
 class Main extends luxe.Game {
 
-    override function config(config:luxe.AppConfig) {
+    override function config(config:luxe.GameConfig) {
 
         config.preload.texts.push({ id:'assets/map-paid.xml' });
         config.preload.texts.push({ id:'assets/map-free.xml' });

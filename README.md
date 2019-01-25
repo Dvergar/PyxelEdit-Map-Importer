@@ -3,7 +3,7 @@ PyxelEdit-Map-Importer
 
 ___Available via [haxelib](http://lib.haxe.org/p/pmi/)___
 
-Haxe map importer for **Pyxel Edit** for the free & paid version. With OpenFL and Luxe helpers.
+**Pyxel Edit** map parser for haxe. With **OpenFL and Luxe helpers**.
 
 ![Pyxel Edit + flash version](http://i.imgur.com/SSux3u6.png)
 
@@ -62,7 +62,7 @@ class Main
 
 You can make use of `pmi.OpenflHelper` to get a tilesheet object and a tile array easily.
 
-* `var tileset = OpenflHelper.getTilesheet("assets/tileset.png");` will return a `Tileset` object.
+* `var tileset = OpenflHelper.getTileset("assets/tileset.png");` will return a `Tileset` object.
 * `var tilemapBackground = OpenflHelper.getTilemap(background, tileset);` will return a `Tilemap` object.
 
 and that's all you need.

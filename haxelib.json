@@ -3,9 +3,9 @@
 	"url": "https://github.com/Dvergar/PyxelEdit-Map-Importer",
 	"license": "BSD",
 	"tags": ["pyxeledit", "editor", "importer", "pyxel", "map", "game"],
-	"description": "Map importer for PyxelEdit editor",
-	"version": "0.4.0",
-	"releasenote": "update for new openFL & Luxe API",
+	"description": "PyxelEdit map parser for haxe",
+	"version": "0.5.0",
+	"releasenote": "heaps helper added",
 	"contributors": [ "caribou" ],
 	"dependencies": {}
 }

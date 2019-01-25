@@ -1,0 +1,6 @@
+-lib heaps
+-lib hlsdl
+-lib pmi
+-hl main.hl
+-main Main
+-cmd hl main.hl

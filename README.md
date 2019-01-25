@@ -3,7 +3,7 @@ PyxelEdit-Map-Importer
 
 ___Available via [haxelib](http://lib.haxe.org/p/pmi/)___
 
-**Pyxel Edit** map parser for haxe. With **OpenFL and Luxe helpers**.
+**Pyxel Edit** map parser for haxe. With **OpenFL, Heaps and Luxe helpers**.
 
 ![Pyxel Edit + flash version](http://i.imgur.com/SSux3u6.png)
 
@@ -107,7 +107,7 @@ class Main extends Sprite
 
 # Luxe helper
 
-You can make use of `pmi.LuxeHelper` to get a tilemap object and and fill the tilelayers easily.
+You can make use of `pmi.LuxeHelper` to get a `Tilemap` object and and fill the tilelayers easily.
 
 * `var tilemap = LuxeHelper.getTilemap('assets/tileset.png');` will return a `Tilemap` object.
 * `LuxeHelper.fillLayer(tilemap, background);` will add the appropriate tilelayer to the tilemap.
@@ -140,6 +140,55 @@ class Main extends luxe.Game
         LuxeHelper.fillLayer(tilemap, objects);
 
         tilemap.display({});
+    }
+}
+```
+
+# Heaps helper
+
+You can make use of `pmi.HeapsHelper` to get a `TileSet` and `TileGroup` object.
+
+* `var tileSet = HeapsHelper.getTileSet("tileset.png");` will return a `TileSet` object.
+* `var backgroundTileGroup = HeapsHelper.getTileGroup(background, tileSet);` will return a `TileGroup` object.
+
+and that's all you need.
+
+_**Note** that to load a heaps asset (the pyxel xml map) you would need `new PyxelMapImporter(hxd.Res.loader.load("map.xml").toText());` here._
+
+## Example
+
+It will load three different layers and draw them on screen.
+
+```Haxe
+import pmi.PyxelMapImporter;
+import pmi.HeapsHelper;
+
+
+class Main extends hxd.App
+{
+    override function init()
+    {
+
+        var pyxelMap = new PyxelMapImporter(hxd.Res.loader.load("map.xml").toText());
+        var tileSet = HeapsHelper.getTileSet("tileset.png");
+
+        var background = pyxelMap.getDatasFromLayer("background");
+        var walls = pyxelMap.getDatasFromLayer("walls");
+        var objects = pyxelMap.getDatasFromLayer("objects");
+
+        var backgroundTileGroup = HeapsHelper.getTileGroup(background, tileSet);
+        var wallsTileGroup = HeapsHelper.getTileGroup(walls, tileSet);
+        var objectsTileGroup = HeapsHelper.getTileGroup(objects, tileSet);
+
+        s2d.addChild(backgroundTileGroup);
+        s2d.addChild(wallsTileGroup);
+        s2d.addChild(objectsTileGroup);
+    }
+
+    public static function main()
+    {
+        hxd.Res.initEmbed();
+        new Main();
     }
 }
 ```

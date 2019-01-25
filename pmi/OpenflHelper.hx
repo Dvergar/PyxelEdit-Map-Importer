@@ -8,6 +8,8 @@ import openfl.geom.Matrix;
 import openfl.geom.Point;
 import openfl.Lib;
 
+import pmi.PyxelMapImporter.Layer;
+
 
 class OpenflHelper
 {
@@ -35,7 +37,7 @@ class OpenflHelper
         return tileset;
     }
 
-    static inline public function getTilemap(layer:pmi.PyxelMapImporter.Layer, tileset:Tileset):Tilemap
+    static inline public function getTilemap(layer:Layer, tileset:Tileset):Tilemap
     {
 		var tilemap = new Tilemap(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight, tileset);
 		tilemap.smoothing = false;

@@ -30,7 +30,6 @@ class HeapsHelper
 
 	static inline public function getTileGroup(layer:Layer, tileSet:TileSet):TileGroup
 	{
-        for(tile in tileSet.tiles) tile.setCenterRatio(0.5, 0.5);
         var group = new h2d.TileGroup(tileSet.main);
 
         for(tile in layer.tiles)

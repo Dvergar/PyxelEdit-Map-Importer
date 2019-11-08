@@ -35,12 +35,12 @@ class PyxelMapImporter
     private var mapDatas:Array<Map<String, String>>;
     private var pyxelMap:haxe.xml.Fast;
 
-    public function new(xmlDatas:String)
+    public function new(xmlDatas:String, ?scale=1)
     {
         var xml = Xml.parse(xmlDatas);
         pyxelMap = new haxe.xml.Fast(xml.firstElement());
-        TILE_WIDTH = Std.parseInt(pyxelMap.att.tilewidth);
-        TILE_HEIGHT = Std.parseInt(pyxelMap.att.tileheight);
+        TILE_WIDTH = Std.parseInt(pyxelMap.att.tilewidth) * scale;
+        TILE_HEIGHT = Std.parseInt(pyxelMap.att.tileheight) * scale;
         TILES_WIDE = Std.parseInt(pyxelMap.att.tileswide);
         TILES_HIGH = Std.parseInt(pyxelMap.att.tileshigh);
     }

@@ -102,4 +102,35 @@ class PyxelMapImporter
 
         return newMap;
     }
+	
+	public function getLayers():Array<Layer>
+	{
+		var result = new Array<Layer>();
+		
+		var layers = pyxelMap.nodes.layer;
+		for (xmlLayer in layers)
+		{
+			var layer = new Layer(xmlLayer.att.name);
+			layer.number = Std.parseInt(xmlLayer.att.number);
+			for (xmlTile in xmlLayer.nodes.tile)
+			{
+				var tile = new Tile();
+				tile.x = Std.parseInt(xmlTile.att.x);
+				tile.y = Std.parseInt(xmlTile.att.y);
+				tile.rot = Std.parseInt(xmlTile.att.rot);
+				tile.flipX = if(xmlTile.att.flipX == "true") true else false;
+
+				if(xmlTile.has.index)  // FREE VERSION
+					tile.index = Std.parseInt(xmlTile.att.index);
+				else  // PAID VERSION
+					tile.index = Std.parseInt(xmlTile.att.tile);
+
+				layer.tiles.push(tile);
+			}
+			
+			result.push(layer);
+		}
+		
+		return result;
+	}
 }
